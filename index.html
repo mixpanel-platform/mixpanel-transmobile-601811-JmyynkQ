@@ -91,7 +91,7 @@
             console.log(i);
             console.log(sortedTransMobileProps[i]);
             var peopleParams = {
-              where: "'properties['TransMobile'] == " + String(Object.keys(sortedTransMobileProps)[i]) + "\'"
+              where: "'((properties['TransMobile'] == \"" + String(Object.keys(sortedTransMobileProps)[i]) + "\"))"
             };
             var peopleTransMobile = MP.api.people(peopleParams).done(function(results){
               console.log(results);
