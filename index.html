@@ -94,8 +94,8 @@
               where: "((properties[\"TransMobile\"] == \"" + String(Object.keys(sortedTransMobileProps)[i]) + "\"))"
             };
             var peopleTransMobile = MP.api.people(peopleParams).done(function(results){
-              console.log(results.values);
-              var countTotalNumberForProp = 0;
+              console.log(results);
+              
               
             });
             
