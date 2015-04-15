@@ -9,7 +9,78 @@
   <body class="mixpanel-platform-body">
     <h1>Hello, World!</h1>
     <script>
-      // Run queries and display results here
+      // formatting the pie chart//
+      
+       MP.api.ready(function () {
+            var dateSelect = $('#dateSelect').MPDatepicker();
+
+            var piePlotOptions = {
+                pie: {
+                    dataLabels: {
+                        enabled: false,
+                        distance: 5
+                    },
+                    showInLegend: true
+                }
+            };
+            var pieLegend = {
+                align: 'right',
+                borderRadius: 0,
+                borderWidth: 0,
+                enabled: true,
+                floating: false,
+                itemMarginBottom: 1,
+                itemMarginTop: 1,
+                itemStyle: { "color": "#333333", "cursor": "pointer", "fontSize": "12px", "fontWeight": "normal" },
+                layout: 'vertical',
+                margin: 2,
+                padding: 2,
+                symbolHeight: 8,
+                symbolPadding: 5,
+                symbolRadius: 4,
+                symbolWidth: 8,
+                verticalAlign: 'center',
+                x: 0,
+                y: 0,
+            }
+
+    
+      var pieChart = $('#transMobilePie').MPChart(
+              {
+                  chartType: 'pie',
+                  highchartsOptions: {
+                      chart: {
+                          marginBottom: 0
+                      },
+                      legend: pieLegend,
+                      plotOptions: piePlotOptions,
+                      colors: ['#109618', '#ff9900', '#dc3912', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000']
+                  }
+              });
+      //Query top properties to receive property data//
+      
+      
+      
+      var topProperties function() {
+        var dateRange = dateSelect.MPDatepicker('value');
+        var params = {
+                    from: dateRange.from,
+                    to: dateRange.to,
+                    type: 'unique',
+                    where: 'properties["LocusTest"] == false'
+                };
+        var topTransMobileProps = MP.api.topProperties('DailyMethod', params).done(function (results){
+          console.log("These are our results");
+          conosle.log(results);
+          
+        })      
+        
+      };
+              
+       };
+              
+              
+              
     </script>
   </body>
 </html>
