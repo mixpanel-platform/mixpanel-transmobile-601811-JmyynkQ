@@ -73,14 +73,15 @@
                 };
         console.log(params);
         var topTransMobileProps = MP.api.propertyValues('DailyReport', 'TransMobile', params).done(function (results){
-        console.log("These are our results");
-        console.log(results.values());
-        var propsForQuerying = results.values();
-        var orderedKeys = Object.keys(propsForQuerying).sort().reverse();
-        var finalData = {};
-        console.log(orderedKeys);
+          console.log("These are our results");
+          console.log(results.values());
+          var propsForQuerying = results.values();
+          var orderedKeys = Object.keys(propsForQuerying).sort().reverse();
+          var finalData = {};
+          console.log(orderedKeys);
 
-      };      
+          }
+    }
         
   
       
