@@ -64,6 +64,7 @@
       var topProperties = function(){
         console.log("dateRange");
         var dateRange = dateSelect.MPDatepicker('value');
+        console.log(dateRange.from);
         var params = {
                     from: dateRange.from,
                     to: dateRange.to,
