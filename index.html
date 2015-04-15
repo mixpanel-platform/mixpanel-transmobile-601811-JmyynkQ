@@ -71,9 +71,9 @@
                     where: 'properties["LocusTest"] == false'
                 };
         console.log(params);
-        var topTransMobileProps = MP.api.topProperties('DailyMethod', params).done(function (results){
+        var topTransMobileProps = MP.api.propertyValues('DailyMethod', 'TransMobile', params).done(function (results){
           console.log("These are our results");
-          console.log(results);
+          console.log(results.values());
           
         });      
         
