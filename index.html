@@ -76,9 +76,13 @@
           console.log("These are our results");
           console.log(results.values());
           var propsForQuerying = results.values();
-          var orderedKeys = Object.values(propsForQuerying).sort().reverse();
-          var finalData = {};
-          console.log(orderedKeys);
+          //var orderedKeys = Object.keys(propsForQuerying).sort().reverse();
+          var sortedTransMobileProps = {};
+          for (var i = 0; i <propsForQuerying.length(); i++){
+            sortedTransMobileProps [ propsForQuerying[i] ];
+            
+          }
+          console.log(sortedTransMobileProps);
 
           })
     }
