@@ -7,7 +7,6 @@
     <script src="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.js"></script>
   </head>
   <body class="mixpanel-platform-body">
-    <h1>Hello, World!</h1>
     <script>
       // formatting the pie chart//
       
@@ -68,16 +67,16 @@
                     to: dateRange.to,
                     type: 'unique',
                     where: 'properties["LocusTest"] == false'
-                };
+                }
         var topTransMobileProps = MP.api.topProperties('DailyMethod', params).done(function (results){
           console.log("These are our results");
           conosle.log(results);
           
         })      
         
-      };
+      }
               
-       };
+  }
               
               
               
