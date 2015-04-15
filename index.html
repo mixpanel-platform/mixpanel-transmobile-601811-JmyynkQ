@@ -60,6 +60,7 @@
       
       
       var topProperties = function() {
+        console.log("dateRange");
         var dateRange = dateSelect.MPDatepicker('value');
         var params = {
                     from: dateRange.from,
@@ -67,6 +68,7 @@
                     type: 'unique',
                     where: 'properties["LocusTest"] == false'
                 };
+        console.log(params);
         var topTransMobileProps = MP.api.topProperties('DailyMethod', params).done(function (results){
           console.log("These are our results");
           conosle.log(results);
