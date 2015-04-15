@@ -89,7 +89,7 @@
           //for each property value, query people and sum number of profiles with specified property
           for (var i = 0; i < Object.keys(sortedTransMobileProps).length; i++){
             var peopleParams = {
-              where: "'properties['TransMobile'] == '" + sortedTransMobile[i].toString();
+              where: "'properties['TransMobile'] == '" + sortedTransMobile[i].toString()
             };
             var peopleTransMobile = MP.api.people(peopleParams).done(function(results){
               console.log(results);
