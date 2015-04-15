@@ -77,12 +77,25 @@
           console.log(results.values());
           var propsForQuerying = results.values();
           //var orderedKeys = Object.keys(propsForQuerying).sort().reverse();
+          
+          //creating new object with property values as keys
           var sortedTransMobileProps = {};
           for(var i = 0; i < Object.keys(propsForQuerying).length; i++){
             sortedTransMobileProps[ propsForQuerying[i] ] = 0;
             
           }
           console.log(sortedTransMobileProps);
+          
+          //for each property value, query people and sum number of profiles with specified property
+          for (var i = 0; i < Object.keys(sortedTransMobileProps).length; i++){
+            var peopleParams = {
+              where: "'properties['TransMobile'] == '" + sortedTransMobile[i].toString();
+            };
+            var peopleTransMobile = MP.api.people(peopleParams).done(function(results){
+              console.log(results);
+            });
+            
+          }
 
           })
     }
