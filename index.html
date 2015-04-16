@@ -7,6 +7,7 @@
     <script src="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.js"></script>
   </head>
   <body class="mixpanel-platform-body">
+    <div id='transMobilePie'></div>
     <script>
       // formatting the pie chart//
       
@@ -46,7 +47,7 @@
                 y: 0,
             }
 
-      console.log("pieChart");
+      
       var pieChart = $('#transMobilePie').MPChart(
               {
                   chartType: 'pie',
@@ -110,7 +111,8 @@
         
         })
         console.log("this is our final data");
-        console.log(sortedTransMobileProps);
+        pieChart.MPChart('setData', sortedTransMobileProps);
+        
       }
         
   
