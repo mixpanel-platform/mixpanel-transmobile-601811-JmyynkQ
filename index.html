@@ -99,7 +99,7 @@
               where: "((properties[\"TransMobile\"] == \"" + String(Object.keys(sortedTransMobileProps)[i]) + "\"))"
             };
             var peopleTransMobile = MP.api.people(peopleParams).done(function(peopleResults){
-              //sortedTransMobileProps[i] = peopleResults.values()['total'];
+              sortedTransMobileProps[Object.keys(sortedTransMobileProps)[i]] = peopleResults.values()['total'];
               
               
             });
