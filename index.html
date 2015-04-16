@@ -105,11 +105,11 @@
               console.log(peopleResults.values()['total']);
               sortedTransMobileProps[Object.keys(sortedTransMobileProps)[i]] = peopleResults.values()['total'];
            })
-        })
+        })(value);
+          i += 1;
              
             
-          })(value);
-          i += 1;
+          })
           
           console.log("this is our final data");
           console.log(sortedTransMobileProps);
