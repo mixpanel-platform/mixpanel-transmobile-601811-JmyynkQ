@@ -11,7 +11,7 @@
     <script>
       // formatting the pie chart//
       
-            console.log("boogie woogie");
+            
       
             var dateSelect = $('#dateSelect').MPDatepicker();
             var piePlotOptions = {
@@ -61,7 +61,6 @@
       //Query top properties to receive property data//
       
       var topProperties = function(){
-        console.log("dateRange");
         var dateRange = dateSelect.MPDatepicker('value');
         console.log(dateRange.from);
         var params = {
@@ -72,22 +71,18 @@
                 };
         console.log(params);
         var topTransMobileProps = MP.api.propertyValues('DailyReport', 'TransMobile', params).done(function (results){
-          console.log("These are our results");
-          console.log(results.values());
           var propsForQuerying = results.values();
-          //var orderedKeys = Object.keys(propsForQuerying).sort().reverse();
           
           //creating new object with property values as keys
-          var sortedTransMobileProps = {};
-          for(var i = 0; i < Object.keys(propsForQuerying).length ; i++){
-            var newKey = propsForQuerying[i];
-            console.log(newKey);
-            sortedTransMobileProps[newKey] = 0;
+            var sortedTransMobileProps = {};
+            for(var i = 0; i < Object.keys(propsForQuerying).length ; i++){
+              var newKey = propsForQuerying[i];
+              console.log(newKey);
+              sortedTransMobileProps[newKey] = 0;
             
-          }
-             console.log("sortedTransMobileProps");
-          console.log(sortedTransMobileProps);
-          queryPeople(sortedTransMobileProps);
+            }
+          
+            queryPeople(sortedTransMobileProps);
         });
         
         
@@ -108,8 +103,6 @@
           }
         pieChart.MPChart('setData', sortedTransMobileProps);
         })
-        console.log("this is our final data");
-        console.log(sortedTransMobileProps);
         
         
       }
