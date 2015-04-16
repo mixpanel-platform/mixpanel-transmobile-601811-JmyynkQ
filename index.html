@@ -11,13 +11,54 @@
     <script>
       // formatting the pie chart//
       
-            console.log("boogie woogie");
+-
+-            var piePlotOptions = {
+-                pie: {
+-                    dataLabels: {
+-                        enabled: false,
+-                        distance: 5
+-                    },
+-                    showInLegend: true
+-                }
+-            };
+-            
+-            console.log("pie legend");
+-            var pieLegend = {
+-                align: 'right',
+-                borderRadius: 0,
+-                borderWidth: 0,
+-                enabled: true,
+-                floating: false,
+-                itemMarginBottom: 1,
+-                itemMarginTop: 1,
+-                itemStyle: { "color": "#333333", "cursor": "pointer", "fontSize": "12px", "fontWeight": "normal" },
+-                layout: 'vertical',
+-                margin: 2,
+-                padding: 2,
+-                symbolHeight: 8,
+-                symbolPadding: 5,
+-                symbolRadius: 4,
+-                symbolWidth: 8,
+-                verticalAlign: 'center',
+-                x: 0,
+-                y: 0,
+-            }
+-
+       
+       var pieChart = $('#transMobilePie').MPChart(
+               {
+                   chartType: 'pie',
+-                  highchartsOptions: {
+-                      chart: {
+-                          marginBottom: 0
+-                      },
+-                      legend: pieLegend,
+-                      plotOptions: piePlotOptions,
+-                      colors: ['#109618', '#ff9900', '#dc3912', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000']
+-                  }
+               });
       
-      
-      var pieChart = $('#transMobilePie').MPChart(
-              {
-                  chartType: 'pie',
-              });
+     
       //Query top properties to receive property data//
       
       var topProperties = function(){
