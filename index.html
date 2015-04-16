@@ -81,7 +81,9 @@
           //creating new object with property values as keys
           var sortedTransMobileProps = {};
           for(var i = 0; i < Object.keys(propsForQuerying).length - 1 ; i++){
-            sortedTransMobileProps[ propsForQuerying[i] ] = 0;
+            var newKey = propsForQuerying[i];
+            console.log(newKey);
+            sortedTransMobileProps[newKey] = 0;
             
           }
           console.log("sortedTransMobileProps");
