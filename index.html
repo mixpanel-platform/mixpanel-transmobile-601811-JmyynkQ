@@ -80,7 +80,7 @@
           
           //creating new object with property values as keys
           var sortedTransMobileProps = {};
-          for(var i = 0; i < Object.keys(propsForQuerying).length - 1 ; i++){
+          for(var i = 0; i < Object.keys(propsForQuerying).length ; i++){
             var newKey = propsForQuerying[i];
             console.log(newKey);
             sortedTransMobileProps[newKey] = 0;
@@ -89,23 +89,23 @@
           console.log("sortedTransMobileProps");
           console.log(sortedTransMobileProps);
           
-          //for each property value, query people and sum number of profiles with specified property
-          for (var i = 0; i < Object.keys(sortedTransMobileProps).length; i++){
-            console.log(i);
-            console.log(sortedTransMobileProps[i]);
-            var peopleParams = {
-              where: "((properties[\"TransMobile\"] == \"" + String(Object.keys(sortedTransMobileProps)[i]) + "\"))"
-            };
-            var peopleTransMobile = MP.api.people(peopleParams).done(function(peopleResults){
-              sortedTransMobileProps[i] = peopleResults.values()['total'];
+    //       //for each property value, query people and sum number of profiles with specified property
+    //       for (var i = 0; i < Object.keys(sortedTransMobileProps).length; i++){
+    //         console.log(i);
+    //         console.log(sortedTransMobileProps[i]);
+    //         var peopleParams = {
+    //           where: "((properties[\"TransMobile\"] == \"" + String(Object.keys(sortedTransMobileProps)[i]) + "\"))"
+    //         };
+    //         var peopleTransMobile = MP.api.people(peopleParams).done(function(peopleResults){
+    //           sortedTransMobileProps[i] = peopleResults.values()['total'];
               
               
-            });
+    //         });
             
-          }
-          console.log(sortedTransMobileProps);
-          })
-    }
+    //       }
+    //       console.log(sortedTransMobileProps);
+    //       })
+    // }
         
   
       
