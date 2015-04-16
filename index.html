@@ -94,7 +94,7 @@
             console.log("values of i");
             console.log(i);
             console.log('should all be zeroes');
-            console.log(Object.keys(sortedTransMobileProps)[i]);
+            console.log(sortedTransMobileProps[Object.keys(sortedTransMobileProps)[i]]);
             var peopleParams = {
               where: "((properties[\"TransMobile\"] == \"" + String(Object.keys(sortedTransMobileProps)[i]) + "\"))"
             };
