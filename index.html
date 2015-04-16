@@ -92,7 +92,7 @@
           //for each property value, query people and sum number of profiles with specified property
          
           i = 0;
-          _.each(_.values(Object.keys(sortedTransMobileProps)) function(value){
+          _.each(_.values(Object.keys(sortedTransMobileProps)), function(value){
              sortedTransMobileProps[Object.keys(sortedTransMobileProps)[i]] = value;
              (function(){
                var peopleParams = {
