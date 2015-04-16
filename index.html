@@ -93,7 +93,7 @@
          
           i = 0;
           _.each(_.values(Object.keys(sortedTransMobileProps)), function(value){
-             sortedTransMobileProps[Object.keys(sortedTransMobileProps)[i]] = value;
+             
              (function(){
                var peopleParams = {
               where: "((properties[\"TransMobile\"] == \"" + String(Object.keys(sortedTransMobileProps)[i]) + "\"))"
@@ -106,17 +106,15 @@
            })
         })(value);
         i += 1;
-             
+         sortedTransMobileProps[Object.keys(sortedTransMobileProps)[i]] = value;    
             
           })
-          
-          
-          console.log("this is our final data");
-          console.log(sortedTransMobileProps);
+        
         
            })
            
-         
+         console.log("this is our final data";
+         console.log(sortedTransMobileProps); 
      }
   
       
