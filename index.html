@@ -91,25 +91,11 @@
           
           //for each property value, query people and sum number of profiles with specified property
          
-        
-          for (var i = 0; i < Object.keys(sortedTransMobileProps).length; i++){
-            console.log("values of i");
-            console.log(i);
-            console.log('should all be zeroes');
-            console.log(sortedTransMobileProps[Object.keys(sortedTransMobileProps)[i]]);
-            sortedTransMobileProps[Object.keys(sortedTransMobileProps)[i]] = makePeopleQuery(i, sortedTransMobileProps);
-          }
-          console.log("this is our final data");
-          console.log(sortedTransMobileProps);
-        
-           })
-           
-         
-     }
-        
-        
-        var makePeopleQuery = function (i, sortedTransMobileProps) {
-           var peopleParams = {
+          i = 0;
+          _.each(_values(Object.keys(sortedTransMobileProps)) function(value){
+             sortedTransMobileProps[Object.keys(sortedTransMobileProps)[i]] = value;
+             (function(){
+               var peopleParams = {
               where: "((properties[\"TransMobile\"] == \"" + String(Object.keys(sortedTransMobileProps)[i]) + "\"))"
             };
             var peopleTransMobile = MP.api.people(peopleParams);
@@ -118,7 +104,19 @@
               console.log(peopleResults.values()['total']);
               return peopleResults.values()['total'];
            })
-        }
+        })
+             
+            
+          })(value);
+          i += 1;
+          
+          console.log("this is our final data");
+          console.log(sortedTransMobileProps);
+        
+           })
+           
+         
+     }
   
       
       topProperties();
