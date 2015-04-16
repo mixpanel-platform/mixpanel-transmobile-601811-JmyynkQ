@@ -100,7 +100,7 @@
           var peopleParams = {
               where: "((properties[\"TransMobile\"] == \"" + String(Object.keys(sortedTransMobileProps)[i]) + "\"))"
             };
-            promise.push(MP.api.people(peopleParams));
+            promises.push(MP.api.people(peopleParams));
           
         }
         Promise.all(promises).then(function(promiseArray){
