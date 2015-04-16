@@ -92,7 +92,7 @@
           //for each property value, query people and sum number of profiles with specified property
          
         
-          for (var i = 0; i < Object.keys(sortedTransMobileProps).length; i++){
+          for (var i = 0; i < Object.keys(sortedTransMobileProps).length; ){
             console.log("values of i");
             console.log(i);
             console.log('should all be zeroes');
@@ -101,6 +101,7 @@
           }
           console.log("this is our final data");
           console.log(sortedTransMobileProps);
+          i++;
            })
            
          
