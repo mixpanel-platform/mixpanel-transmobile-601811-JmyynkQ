@@ -104,11 +104,12 @@
               console.log(peopleResults.values()['total']);
               return peopleResults.values()['total'];
            })
-        })
+        })(value);
+        i += 1;
              
             
-          })(value);
-          i += 1;
+          })
+          
           
           console.log("this is our final data");
           console.log(sortedTransMobileProps);
