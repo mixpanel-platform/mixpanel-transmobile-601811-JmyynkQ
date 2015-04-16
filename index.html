@@ -86,38 +86,31 @@
             sortedTransMobileProps[newKey] = 0;
             
           }
-          console.log("sortedTransMobileProps");
+             console.log("sortedTransMobileProps");
           console.log(sortedTransMobileProps);
-          
-          //for each property value, query people and sum number of profiles with specified property
-         
-          i = 0;
-          var resolving_list = [];
-          _.each(_.values(Object.keys(sortedTransMobileProps)), function(value){
-            resolving_list.push(value);
-             (function(){
-               var peopleParams = {
+        });
+        queryPeople(sortedTransMobileProps);
+        console.log(sortedTransMobileProps);
+      }
+      
+      var queryPeople = function (sortedTransMobileProps) {
+        var promises = [];
+        for (var i = 0; i<Object.keys(sortedTransMobileProps).length; i++){
+          var peopleParams = {
               where: "((properties[\"TransMobile\"] == \"" + String(Object.keys(sortedTransMobileProps)[i]) + "\"))"
             };
-            var peopleTransMobile = MP.api.people(peopleParams);
-            $.when(peopleTransMobile).done(function(peopleResults){
-              console.log("total number counts");
-              console.log(peopleResults.values()['total']);
-              sortedTransMobileProps[Object.keys(sortedTransMobileProps)[i]] = peopleResults.values()['total'];
-           })
-        })(value);
-          i += 1;
-             
-            
-          })
+            promise.push(MP.api.people(peopleParams));
           
-          console.log("this is our final data");
-          console.log(sortedTransMobileProps);
+        }
+        Promise.all(promises).then(function(promiseArray){
+          for (var i = 0; i < promiseArray.length; i++){
+            sortedTransMobileProps[Object.keys(sortedTransMobileProps)[i]] = promiseArray[i].values()['total'];
+          }
         
-           })
-           
-         
-     }
+        })
+        console.log(sortedTransMobileProps);
+      }
+        
   
       
       topProperties();
