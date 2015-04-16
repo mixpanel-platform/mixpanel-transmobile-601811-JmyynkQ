@@ -102,7 +102,7 @@
             $.when(peopleTransMobile).done(function(peopleResults){
               console.log("total number counts");
               console.log(peopleResults.values()['total']);
-              return peopleResults.values()['total'];
+              value = peopleResults.values()['total'];
            })
         })(value);
         i += 1;
