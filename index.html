@@ -63,11 +63,12 @@
           for (var i = 0; i < promiseArray.length; i++){
             sortedTransMobileProps[Object.keys(sortedTransMobileProps)[i]] = promiseArray[i].values()['total'];
           }
+          pieChart.MPChart('setData', sortedTransMobileProps);
+
         
         })
         console.log("this is our final data");
         console.log(sortedTransMobileProps);
-        pieChart.MPChart('setData', sortedTransMobileProps);
         
       }
         
