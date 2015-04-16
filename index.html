@@ -111,14 +111,12 @@
            var peopleParams = {
               where: "((properties[\"TransMobile\"] == \"" + String(Object.keys(sortedTransMobileProps)[i]) + "\"))"
             };
-            var peopleTransMobile = MP.api.people(peopleParams).done(function(peopleResults){
+            var peopleTransMobile = MP.api.people(peopleParams);
+            $.when(peopleTransMobile).done(function(peopleResults){
               console.log("total number counts");
               console.log(peopleResults.values()['total']);
               return peopleResults.values()['total'];
-              
-              
-            });
-          
+           })
         }
   
       
