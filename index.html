@@ -11,64 +11,66 @@
     <script>
       // formatting the pie chart//
       
--
--            var piePlotOptions = {
--                pie: {
--                    dataLabels: {
--                        enabled: false,
--                        distance: 5
--                    },
--                    showInLegend: true
--                }
--            };
--            
--            console.log("pie legend");
--            var pieLegend = {
--                align: 'right',
--                borderRadius: 0,
--                borderWidth: 0,
--                enabled: true,
--                floating: false,
--                itemMarginBottom: 1,
--                itemMarginTop: 1,
--                itemStyle: { "color": "#333333", "cursor": "pointer", "fontSize": "12px", "fontWeight": "normal" },
--                layout: 'vertical',
--                margin: 2,
--                padding: 2,
--                symbolHeight: 8,
--                symbolPadding: 5,
--                symbolRadius: 4,
--                symbolWidth: 8,
--                verticalAlign: 'center',
--                x: 0,
--                y: 0,
--            }
--
-       
-       var pieChart = $('#transMobilePie').MPChart(
-               {
-                   chartType: 'pie',
--                  highchartsOptions: {
--                      chart: {
--                          marginBottom: 0
--                      },
--                      legend: pieLegend,
--                      plotOptions: piePlotOptions,
--                      colors: ['#109618', '#ff9900', '#dc3912', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000']
--                  }
-               });
+            console.log("boogie woogie");
       
-     
+            var dateSelect = $('#dateSelect').MPDatepicker();
+            var piePlotOptions = {
+                pie: {
+                    dataLabels: {
+                        enabled: false,
+                        distance: 5
+                    },
+                    showInLegend: true
+                }
+            };
+            
+            console.log("pie legend");
+            var pieLegend = {
+                align: 'right',
+                borderRadius: 0,
+                borderWidth: 0,
+                enabled: true,
+                floating: false,
+                itemMarginBottom: 1,
+                itemMarginTop: 1,
+                itemStyle: { "color": "#333333", "cursor": "pointer", "fontSize": "12px", "fontWeight": "normal" },
+                layout: 'vertical',
+                margin: 2,
+                padding: 2,
+                symbolHeight: 8,
+                symbolPadding: 5,
+                symbolRadius: 4,
+                symbolWidth: 8,
+                verticalAlign: 'center',
+                x: 0,
+                y: 0,
+            }
+      
+      var pieChart = $('#transMobilePie').MPChart(
+              {
+                  chartType: 'pie',
+                  highchartsOptions: {
+                      chart: {
+                          marginBottom: 0
+                      },
+                      legend: pieLegend,
+                      plotOptions: piePlotOptions,
+                      colors: ['#109618', '#ff9900', '#dc3912', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000']
+                  }
+              });
       //Query top properties to receive property data//
       
       var topProperties = function(){
+        console.log("dateRange");
+        var dateRange = dateSelect.MPDatepicker('value');
+        console.log(dateRange.from);
         var params = {
                     from: '2015-01-01',
                     to: '2015-04-15',
                     type: 'unique',
                     where: 'properties["LocusTest"] == false'
                 };
-        
+        console.log(params);
         var topTransMobileProps = MP.api.propertyValues('DailyReport', 'TransMobile', params).done(function (results){
           console.log("These are our results");
           console.log(results.values());
@@ -104,12 +106,11 @@
           for (var i = 0; i < promiseArray.length; i++){
             sortedTransMobileProps[Object.keys(sortedTransMobileProps)[i]] = promiseArray[i].values()['total'];
           }
-          pieChart.MPChart('setData', sortedTransMobileProps);
-
-        
+        pieChart.MPChart('setData', sortedTransMobileProps);
         })
         console.log("this is our final data");
         console.log(sortedTransMobileProps);
+        
         
       }
         
@@ -122,3 +123,5 @@
     </script>
   </body>
 </html>
+      
+     
